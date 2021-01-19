@@ -24,6 +24,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('home',[
-            "kelas"=>\App\Models\Kelas::where("dosen_id",\Auth::user()->id)->get()]);
+            "kelas" =>\App\Models\Kelas::where("dosen_id",\Auth::user()->id)->get(),
+            "mahasiswakelas" => \App\Models\User::find(\Auth::user()->id)->mahasiswakelas()->get()
+        ]);
     }
 }

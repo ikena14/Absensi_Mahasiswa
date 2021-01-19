@@ -40,4 +40,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function mahasiswakelas()
+    {
+        return $this->belongsToMany('App\Models\Kelas', 'tblmahasiswakelas', 'mahasiswa_id', 'kelas_id');
+    }
+
 }
